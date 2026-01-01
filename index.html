@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FHYPGTRTJW"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-FHYPGTRTJW');
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    // Track redirect intent (optional but recommended)
-    gtag('event', 'redirect_to_google_form');
-  </script>
+  // Ensure a page_view is sent
+  gtag('config', 'G-FHYPGTRTJW', { send_page_view: true });
 
-  <!-- Redirect after small delay for reliability -->
-  <script>
-    setTimeout(function() {
+  // Fire an event and only redirect after GA queues it
+  gtag('event', 'redirect_to_google_form', {
+    event_callback: function () {
       window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSeSJgaPZhjHih2YxWnTVvYSKAPaRTK0zi7X_pH6QkcQnQdjsA/viewform";
-    }, 1000);
-  </script>
+    }
+  });
+
+  // Safety fallback in case callback never fires (adblock, etc.)
+  setTimeout(function () {
+    window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSeSJgaPZhjHih2YxWnTVvYSKAPaRTK0zi7X_pH6QkcQnQdjsA/viewform";
+  }, 2500);
+</script>
+
 </head>
 <body>
 </body>
