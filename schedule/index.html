@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Schedule an Appointment | Triton Tax</title>
+
+  <meta name="robots" content="noindex" />
+  <link rel="canonical" href="https://calendly.com/dnegreteg0001/30min" />
+
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FHYPGTRTJW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+
+    gtag('js', new Date());
+
+    // Send the page_view for /schedule
+    gtag('config', 'G-FHYPGTRTJW', {
+      send_page_view: true,
+      page_path: '/schedule'
+    });
+
+    // Fire an event, then redirect
+    gtag('event', 'schedule_redirect_to_calendly', {
+      event_callback: function () {
+        window.location.href = "https://calendly.com/dnegreteg0001/30min";
+      }
+    });
+
+    // Fallback if callback is blocked
+    setTimeout(function () {
+      window.location.href = "https://calendly.com/dnegreteg0001/30min";
+    }, 1200);
+  </script>
+</head>
+<body>
+  <p>Redirecting…</p>
+</body>
+</html>
